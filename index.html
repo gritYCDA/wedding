@@ -189,6 +189,8 @@ form{text-align:left;display:grid;gap:12px}
 .fld textarea{min-height:92px;resize:vertical}
 .fld input:focus,.fld textarea:focus,.fld select:focus{outline:2px solid var(--accent);outline-offset:0;border-color:transparent}
 .seg{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.seg.seg3{grid-template-columns:1fr 1fr 1fr}
+.seg.seg3 label{padding:11px 4px;font-size:.8rem}
 .seg label{display:flex;align-items:center;justify-content:center;padding:11px;border:1px solid var(--line);border-radius:10px;font-family:var(--sans);font-size:.84rem;font-weight:500;cursor:pointer;background:var(--paper)}
 .seg input{position:absolute;opacity:0;width:0;height:0}
 .seg input:checked+span{color:var(--accent)}
@@ -430,16 +432,21 @@ footer .sm{font-family:var(--latin);font-size:.8rem;color:var(--ink-3);margin-to
 <section class="rv" id="bus" hidden>
   <div class="eyebrow">Shuttle bus</div>
   <h2 class="h">익산 출발 전세버스 안내</h2>
-  <p class="note">익산에서 오시는 신랑측 하객분들을 위해<br>예식 당일 전세버스를 운행합니다.<br>좌석 준비를 위해 탑승 인원을 미리 알려주세요.<br><span style="font-size:.78rem;color:var(--ink-3)">버스를 신청하시면 참석 의사는 따로 전달하지 않으셔도 됩니다.</span></p>
+  <p class="note">익산에서 오시는 신랑측 하객분들을 위해<br>예식 당일 왕복 전세버스를 운행합니다.<br>좌석 준비를 위해 탑승 인원을 미리 알려주세요.<br><span style="font-size:.78rem;color:var(--ink-3)">버스를 신청하시면 참석 의사는 따로 전달하지 않으셔도 됩니다.</span></p>
   <div class="bus-line">
-    <div><span class="lab">집결 08:45</span><span class="t">09:00</span><span class="lab">익산 출발</span></div>
+    <div><span class="lab">올라가는 길</span><span class="t">09:00</span><span class="lab">익산 출발</span></div>
     <div class="arrow"></div>
-    <div><span class="lab">약 4시간</span><span class="t">13:00</span><span class="lab">서울 도착 예정</span></div>
+    <div><span class="lab">약 4시간</span><span class="t">13:00</span><span class="lab">서울 도착</span></div>
+  </div>
+  <div class="bus-line" style="margin-top:-8px">
+    <div><span class="lab">내려가는 길</span><span class="t">16:30</span><span class="lab">서울 출발</span></div>
+    <div class="arrow"></div>
+    <div><span class="lab">약 4시간</span><span class="t">20:30</span><span class="lab">익산 도착</span></div>
   </div>
   <div class="bus-card">
-    <div class="row"><div class="k">일시</div><div class="v"><b>2027년 1월 2일 (토)</b> 오전 8시 45분까지 집결<div class="sub">9시 정각 출발 · 중간 휴게소 1회 정차</div></div></div>
-    <div class="row"><div class="k">탑승지</div><div class="v"><b>고용노동부 익산지청 주차장</b><div class="sub">전북특별자치도 익산시 하나로 478 (어양동 626-1)</div></div></div>
-    <div class="row"><div class="k">도착지</div><div class="v"><b>보테가마지오</b> (서울 성동구 갤러리아포레)<div class="sub">예식 1시간 전 도착 예정</div></div></div>
+    <div class="row"><div class="k">일시</div><div class="v"><b>2027년 1월 2일 (토)</b><div class="sub">올라가는 길 · 오전 8시 45분 집결, 9시 정각 출발<br>내려가는 길 · 예식·식사 후 오후 4시 30분 출발</div></div></div>
+    <div class="row"><div class="k">익산</div><div class="v"><b>고용노동부 익산지청 주차장</b><div class="sub">전북특별자치도 익산시 하나로 478 (어양동 626-1) · 승차·하차 동일</div></div></div>
+    <div class="row"><div class="k">서울</div><div class="v"><b>보테가마지오</b> (성동구 갤러리아포레)<div class="sub">예식 1시간 전 도착 · 돌아갈 때도 같은 자리에서 탑승</div></div></div>
     <div class="row"><div class="k">신청 마감</div><div class="v"><b id="busDeadlineText">2026년 12월 20일 (일)</b><div class="sub">좌석이 한정되어 있어 선착순으로 마감될 수 있습니다.</div></div></div>
   </div>
   <a class="btn" style="width:100%;margin-bottom:22px" href="https://map.naver.com/p/search/%EA%B3%A0%EC%9A%A9%EB%85%B8%EB%8F%99%EB%B6%80%20%EC%9D%B5%EC%82%B0%EC%A7%80%EC%B2%AD" target="_blank" rel="noopener">탑승지 지도 보기</a>
@@ -447,6 +454,13 @@ footer .sm{font-family:var(--latin);font-size:.8rem;color:var(--ink-3);margin-to
     <div class="two">
       <div class="fld"><label for="bName">성함</label><input id="bName" name="name" required maxlength="20" placeholder="성함"></div>
       <div class="fld"><label for="bPhone">연락처</label><input id="bPhone" name="phone" required inputmode="tel" pattern="[0-9\-]{9,13}" placeholder="010-0000-0000"></div>
+    </div>
+    <div class="fld"><label>이용 구간</label>
+      <div class="seg seg3">
+        <label><input type="radio" name="trip" value="round" checked><span>왕복</span></label>
+        <label><input type="radio" name="trip" value="up"><span>올라갈 때만</span></label>
+        <label><input type="radio" name="trip" value="down"><span>내려갈 때만</span></label>
+      </div>
     </div>
     <div class="two">
       <div class="fld"><label for="bCount">탑승 인원 (본인 포함)</label><select id="bCount" name="count"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></div>
@@ -508,7 +522,7 @@ footer .sm{font-family:var(--latin);font-size:.8rem;color:var(--ink-3);margin-to
   <div class="pola" aria-hidden="true"><div class="p1"><img src="photos_thumb/02.jpg" alt=""></div><div class="p2"><img src="photos_thumb/10.jpg" alt=""></div><div class="p3"><img src="photos_thumb/14.jpg" alt=""></div></div>
   <div class="eyebrow">Capture our moments</div>
   <h2 class="h">축하 사진 공유</h2>
-  <p class="share-note">신랑신부의 행복한 순간을 담아주세요.<br>예식 당일, 아래 버튼을 통해 사진을 올려주세요.<br>가장 멋진 사진을 찍어주시는 세 분께는<br>작은 선물을 드립니다.</p>
+  <p class="share-note">신랑신부의 행복한 순간을 담아주세요.<br>예식 당일 오후 1시부터 아래 버튼으로 올려주세요.<br>가장 멋진 사진을 찍어주시는 세 분께는<br>작은 선물을 드립니다.</p>
   <form id="upForm">
     <div class="two">
       <div class="fld"><label for="uName">이름</label><input id="uName" name="name" required maxlength="20" placeholder="이름"></div>
@@ -663,7 +677,7 @@ footer .sm{font-family:var(--latin);font-size:.8rem;color:var(--ink-3);margin-to
   }
 
   /* 축하 사진 공유 */
-  var SHARE={endpoint:'https://script.google.com/macros/s/AKfycbzmiCxxggP2C7BVNCuze-mTRpQF9-DiQgLWJTuqqiuCjfO0RSP4PL9uswHvnrQM8WnO/exec',openAt:new Date('2027-01-02T14:00:00+09:00').getTime(),max:3};
+  var SHARE={endpoint:'https://script.google.com/macros/s/AKfycbzmiCxxggP2C7BVNCuze-mTRpQF9-DiQgLWJTuqqiuCjfO0RSP4PL9uswHvnrQM8WnO/exec',openAt:new Date('2027-01-02T00:00:00+09:00').getTime(),max:3};
   var upForm=$('#upForm'),slots=$('#slots'),fileIn=$('#uFiles'),upBtn=$('#upBtn'),upState=$('#upState'),prog=$('#prog'),sharedList=$('#sharedList');
   var picked=[];
   function keyFor(ph){return 'up_'+digits(ph).slice(-8)}
@@ -684,13 +698,13 @@ footer .sm{font-family:var(--latin);font-size:.8rem;color:var(--ink-3);margin-to
     fileIn.value='';renderSlots();
   });
   renderSlots();
-  function openNow(){return Date.now()>=SHARE.openAt||location.hash==='#test'}
   function refreshState(){
-    if(!SHARE.endpoint){upBtn.disabled=true;upState.textContent='업로드 기능은 준비 중입니다. (백엔드 연결 후 활성화)';return}
-    if(!openNow()){upBtn.disabled=true;upState.textContent='2027년 1월 2일 오후 2시부터 업로드할 수 있습니다.';return}
-    upBtn.disabled=false;upState.textContent='JPG·HEIC 등 원본 그대로 올라갑니다. 1인 3장까지.';
+    if(!SHARE.endpoint){upBtn.disabled=true;upState.textContent='업로드 기능은 준비 중입니다.';return}
+    var open=Date.now()>=SHARE.openAt||location.hash==='#test';
+    upBtn.disabled=!open;
+    upState.textContent=open?'JPG·HEIC 등 원본 그대로 올라갑니다. 1인 3장까지.':'예식 당일 1월 2일 오후 1시부터 업로드할 수 있습니다.';
   }
-  refreshState();setInterval(refreshState,30000);
+  refreshState();setInterval(refreshState,60000);
   function readB64(f){return new Promise(function(res,rej){var r=new FileReader();r.onload=function(){res(String(r.result).split(',')[1])};r.onerror=rej;r.readAsDataURL(f)})}
   // Apps Script는 CORS 사전요청(OPTIONS)에 응답하지 않으므로 "단순 요청"으로만 보낸다: fetch + 본문 문자열, 헤더 없음
   function post(payload){
@@ -738,14 +752,14 @@ footer .sm{font-family:var(--latin);font-size:.8rem;color:var(--ink-3);margin-to
   if(Date.now()>BUS.deadline){busBtn.disabled=true;busMsg.textContent='신청이 마감되었습니다. 문의는 신랑측으로 연락 부탁드립니다.'}
   busForm.addEventListener('submit',async function(e){
     e.preventDefault();
-    var fd=new FormData(busForm),rec={name:(fd.get('name')||'').trim(),phone:digits(fd.get('phone')),count:+fd.get('count'),memo:(fd.get('memo')||'').trim(),side:'groom',attend:'yes',createdAt:new Date().toISOString()};
+    var fd=new FormData(busForm),rec={name:(fd.get('name')||'').trim(),phone:digits(fd.get('phone')),count:+fd.get('count'),trip:fd.get('trip')||'round',memo:(fd.get('memo')||'').trim(),side:'groom',attend:'yes',createdAt:new Date().toISOString()};
     if(!rec.name||rec.phone.length<8){busMsg.textContent='연락처를 확인해주세요.';return}
     busBtn.disabled=true;busMsg.textContent='전송 중…';
     try{
       if(SHARE.endpoint){var j=await api('bus',rec);if(!j.ok)throw new Error(j.error||'fail')}
       else if(db){await db.collection('bus').add(Object.assign({uid:uid},rec))}
       else throw new Error('offline');
-      busMsg.textContent='신청되었습니다. '+rec.count+'명 좌석을 준비하겠습니다. 참석 의사도 함께 전달되었습니다.';busForm.reset();say('버스 탑승 신청 완료');
+      busMsg.textContent='신청되었습니다. '+({round:'왕복',up:'올라가는 길',down:'내려가는 길'}[rec.trip])+' '+rec.count+'명 좌석을 준비하겠습니다. 참석 의사도 함께 전달되었습니다.';busForm.reset();say('버스 탑승 신청 완료');
     }catch(err){busMsg.textContent=(err&&err.message==='offline')?'아직 저장할 수 없습니다. 신랑측으로 직접 연락 부탁드립니다.':'전송에 실패했습니다. 잠시 후 다시 시도해주세요.'}
     busBtn.disabled=false;
   });
@@ -783,8 +797,8 @@ footer .sm{font-family:var(--latin);font-size:.8rem;color:var(--ink-3);margin-to
     if(!SHARE.endpoint){mMsg.textContent='응답 조회는 정식 배포 후 이용할 수 있습니다.';return}
     mMsg.textContent='확인 중…';
     try{var r=await fetch(SHARE.endpoint+'?action=me&phone='+ph);var j=await r.json();
-      if(j.rsvp)mMsg.textContent='전달하신 응답: '+describe(j.rsvp)+(j.bus?'\n전세버스 '+j.bus.count+'명 신청됨':'')+'\n내용이 바뀌면 같은 연락처로 다시 보내주시면 됩니다.';
-      else if(j.bus)mMsg.textContent=j.bus.name+'님 · 전세버스 '+j.bus.count+'명 신청됨 (신랑측 참석으로 기록)';
+      if(j.rsvp)mMsg.textContent='전달하신 응답: '+describe(j.rsvp)+(j.bus?'\n전세버스 '+({round:'왕복',up:'올라가는 길',down:'내려가는 길'}[j.bus.trip]||'')+' '+j.bus.count+'명 신청됨':'')+'\n내용이 바뀌면 같은 연락처로 다시 보내주시면 됩니다.';
+      else if(j.bus)mMsg.textContent=j.bus.name+'님 · 전세버스 '+({round:'왕복',up:'올라가는 길',down:'내려가는 길'}[j.bus.trip]||'')+' '+j.bus.count+'명 신청됨 (신랑측 참석으로 기록)';
       else mMsg.textContent='이 연락처로 전달된 응답이 없습니다.';
     }catch(e){mMsg.textContent='조회에 실패했습니다. 잠시 후 다시 시도해주세요.'}
   };
