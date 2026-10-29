@@ -322,7 +322,7 @@ footer .sm{font-family:var(--latin);font-size:.8rem;color:var(--ink-3);margin-to
     <div class="car" id="car" aria-label="사진 슬라이드"></div>
     <button class="car-nav prev" id="carPrev" type="button" aria-label="이전 사진">‹</button>
     <button class="car-nav next" id="carNext" type="button" aria-label="다음 사진">›</button>
-    <div class="car-cnt" id="carCnt">1 / 20</div>
+    <div class="car-cnt" id="carCnt">1 / 23</div>
   </div>
   <div class="thumbs collapsed" id="thumbs"></div>
   <div class="more"><button class="btn" id="moreBtn" type="button">사진 더보기 (10장)</button></div>
@@ -519,7 +519,7 @@ footer .sm{font-family:var(--latin);font-size:.8rem;color:var(--ink-3);margin-to
 
 <!-- 축하 사진 공유 -->
 <section class="rv" id="share">
-  <div class="pola" aria-hidden="true"><div class="p1"><img src="photos_thumb/02.jpg" alt=""></div><div class="p2"><img src="photos_thumb/10.jpg" alt=""></div><div class="p3"><img src="photos_thumb/14.jpg" alt=""></div></div>
+  <div class="pola" aria-hidden="true"><div class="p1"><img src="photos_thumb/02.jpg" alt=""></div><div class="p2"><img src="photos_thumb/10.jpg" alt=""></div><div class="p3"><img src="photos_thumb/15.jpg" alt=""></div></div>
   <div class="eyebrow">Capture our moments</div>
   <h2 class="h">축하 사진 공유</h2>
   <p class="share-note">신랑신부의 행복한 순간을 담아주세요.<br>예식 당일 오후 1시부터 아래 버튼으로 올려주세요.<br>가장 멋진 사진을 찍어주시는 세 분께는<br>작은 선물을 드립니다.</p>
@@ -601,7 +601,7 @@ footer .sm{font-family:var(--latin);font-size:.8rem;color:var(--ink-3);margin-to
   tick();setInterval(tick,1000);
 
   /* 갤러리: 가로 슬라이드 + 썸네일(더보기) */
-  var N=20,RATIO=[0.666, 0.666, 0.75, 0.75, 1.778, 1.333, 1.564, 0.667, 0.667, 0.666, 0.667, 0.668, 0.75, 0.666, 0.667, 0.667, 0.667, 0.667, 0.667, 0.667]; // 가로/세로 비율 (사진별)
+  var N=23,RATIO=[0.666, 0.666, 0.75, 0.75, 1.778, 1.333, 1.564, 0.666, 0.666, 0.666, 0.666, 0.666, 0.668, 0.75, 0.666, 0.666, 0.666, 0.666, 0.666, 0.666, 0.666, 0.666, 0.666]; // 가로/세로 비율 (사진별)
   var car=$('#car'),thumbs=$('#thumbs'),cnt=$('#carCnt'),cur=0;
   for(var i=1;i<=N;i++){
     var f='photos/'+pad(i)+'.jpg',t='photos_thumb/'+pad(i)+'.jpg';
